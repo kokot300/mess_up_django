@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post" action="{{ movie.get_add_url }}" class="pure-form"> {% csrf_token %}
+    {{ formset.as_ul }}
+    <button type="submit" class="pure-button pure-button-primary">submit</button>
+    </form>
+{% endblock %}

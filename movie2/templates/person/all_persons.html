@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <a class="pure-button pure-button-primary" href="{{ person.get_absolute_url }}?order=ascending"> ascending </a>
+        <a class="pure-button pure-button-primary" href="{{ person.get_absolute_url }}?order=descending"> descending </a>
+        <a class="pure-button pure-button-primary" href="{{ person.get_absolute_url }}?order=default"> default </a>
+    </div>
+    <div>
+        {% for person in persons %}
+            <ul>
+                <li>
+                    <a href="{{ person.get_detail_url }}">{{ person.first_name }} {{ person.last_name }}</a>
+                    <a href="{{ person.get_edit_url }}">edit person</a>
+                    <a href="{{ person.get_delete_url }}">delete person</a>
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

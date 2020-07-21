@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        {% for person in object_list %}
+            <ul>
+            <li>
+                <a href="/people/{{ person.id }}/details/">{{ person.first_name }} {{ person.last_name }}</a>
+                <a href="/people/{{ person.id }}/edit">edit person</a>
+                <a href="/people/{{ person.id }}/delete">delete person</a>
+            </li>
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>hello {{ request.user }}!</p>
+<p>{{ request.user.is_authenticated }}</p>
+<p>I am {{ me }}</p>
+{% for num in lst%}
+{% if num > 150 %}
+<p>that's a lot</p>
+{% else %}
+{{ forloop.counter }}. {{ num | add:22 }}<br>
+{% endif %}
+{% endfor %}
+{% endblock %}

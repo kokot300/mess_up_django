@@ -1,4 +1,4 @@
-"""trydjango URL Configuration
+"""movies URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.storage import staticfiles_storage
 
-from pages.views import home_view, product_detail
+from .views import index_page
 
 urlpatterns = [
-    path('', home_view, name='home'),
-    path('admin/', admin.site.urls),
-    path('product/', product_detail),
+
+    path('', index_page),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('favicon.ico'))),
+    path('robots.txt', RedirectView.as_view(url=staticfiles_storage.url('robots.txt'))),
+
 ]

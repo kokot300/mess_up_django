@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <a class="pure-button pure-button-primary" href="{{ movie.get_absolute_url }}?order=ascending"> ascending </a>
+        <a class="pure-button pure-button-primary" href="{{ movie.get_absolute_url }}?order=descending"> descending </a>
+        <a class="pure-button pure-button-primary" href="{{ movie.get_absolute_url }}?order=default"> default </a>
+    </div>
+    <div>
+        {% for movie in movies %}
+            <ul>
+                <li>
+                    <a class="pure-button pure-button-active" href="{{ movie.get_detail_url }}">
+                        {{ movie.title }} {{ movie.year }} {{ movie.director.last_name }} {{ movie.rating }}</a>
+                    <a class="pure-button pure-button-active" href="{{ movie.get_edit_url }}">edit movie</a>
+                    <a class="pure-button pure-button-active" href="{{ movie.get_delete_url }}">delete movie</a>
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

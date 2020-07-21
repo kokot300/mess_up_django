@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <form class="pure-form pure-form-aligned" action="." method="get">
+            <fieldset>
+                <legend>find movie!</legend>
+                <div class="pure-control-group">
+                    <label for="title">title</label>
+                    <input type="text" id="title" name="title"/><br>
+                </div>
+                <div class="pure-controls">
+                    <button class="pure-button pure-button-primary" type="submit" name="search_by_title" value="1">
+                        search by title
+                    </button>
+                </div>
+                <br>
+
+                <div class="pure-control-group">
+                    <label for="first_name">first_name</label>
+                    <input type="text" id="first_name" name="first_name"/>
+                </div>
+                <div class="pure-controls">
+                    <button class="pure-button pure-button-primary" type="submit" name="search_by_first_name" value="1">
+                        search by first name
+                    </button>
+                </div>
+                <br>
+
+                <div class="pure-control-group">
+                    <label for="last_name">last_name</label>
+                    <input type="text" id="last_name" name="last_name"/><br>
+                </div>
+                <div class="pure-controls">
+                    <button class="pure-button pure-button-primary" type="submit" name="search_by_last_name" value="1">
+                        search by last name
+                    </button>
+                </div>
+                <br>
+
+
+                <div class="pure-control-group">
+                    <label for="year_from">year_from</label>
+                    <input type="range" min="1800" max="3000" id="year_from" name="year_from" value="1800"/><br>
+                    <label for="year_to">year_to</label>
+                    <input type="range" min="1800" max="3000" id="year_to" name="year_to" value="3000"/><br>
+                </div>
+                <div class="pure-controls">
+                    <button class="pure-button pure-button-primary" type="submit" name="search_by_year" value="1">search
+                        by year
+                    </button>
+                </div>
+                <br>
+
+                <div class="pure-control-group">
+                    <label for="rating_from">rating_from</label>
+                    <input type="range" min="1" max="5" id="rating_from" name="rating_from" value="1"/><br>
+                    <label for="rating_to">rating_to</label>
+                    <input type="range" min="1" max="5" id="rating_to" name="rating_to" value="5"/><br>
+                </div>
+                <div class="pure-controls">
+                    <button class="pure-button pure-button-primary" type="submit" name="search_by_rating" value="1">
+                        search by rating
+                    </button>
+                </div>
+                <br>
+
+                <div class="pure-control-group">
+                    <label for="genre">genre</label>
+                    <input type="text" id="genre" name="genre"/><br>
+                </div>
+                <div class="pure-controls">
+                    <button class="pure-button pure-button-primary" type="submit" name="search_by_genre" value="1">
+                        search by genre
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+        <div>
+            {% for movie in movies %}
+            {{ movie.title }}<br>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post" action="/people/add_raw/" class="pure-form pure-form-stacked"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="pure-button pure-button-primary">submit</button>
+    </form>
+{% endblock %}

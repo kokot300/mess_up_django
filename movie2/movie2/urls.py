@@ -1,4 +1,4 @@
-"""trydjango URL Configuration
+"""movies URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-from pages.views import home_view, product_detail
+# from people_and_movies.views import index_page
 
 urlpatterns = [
-    path('', home_view, name='home'),
     path('admin/', admin.site.urls),
-    path('product/', product_detail),
+    # path('', index_page),
+    path('movies/', include('movies.urls'), name='movies-branch'),
+    path('people/', include('people.urls')),
+    path('', include('main_app.urls')),
+
 ]
